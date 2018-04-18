@@ -28,7 +28,7 @@ namespace MathProcedures
                                   "Press the corresponding letter for each procedure.");
                 Console.ForegroundColor = ConsoleColor.Yellow;      //Color yellow
                 Console.Write("     a. Fibonacci Sequence.\t\t\t b. Number Wizard\n" +
-                              "     c. Grocery List\t\t\t\t d.");
+                              "     c. Grocery List\t\t\t\t d. Playing with Words");
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine("\n     To exit the program please type 'quit' or 'done'.\n");
                 Console.ForegroundColor = ConsoleColor.White;       //Color white
@@ -54,6 +54,12 @@ namespace MathProcedures
                     var grocerylist = new GroceryList();
                     grocerylist.GlistMain();
                 }
+                else if (choice == "d")
+                {
+                    var stringplay = new StringPlay();
+                    stringplay.BuilderString();
+                    Breaker();
+                }
                 else if (choice == "quit" || choice == "done")
                 {
                     Environment.Exit(0);
@@ -74,12 +80,13 @@ namespace MathProcedures
 
         //Method breaker
         //for neatness between cycles/iterations
-        //changes "-" color to red and text color to white
         internal static void Breaker()
         {
             while (true)
             {
+                Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine("Press enter to return to main menu.");
+                Console.ForegroundColor = ConsoleColor.White;
                 if (Console.ReadKey(true).Key == ConsoleKey.Enter)
                 {
                     Console.WriteLine("Returning you to main menu shortly.");
